@@ -1,15 +1,8 @@
 {
-  "version": 3,
-  "routes": [
-    { "src": "/(.*)", "dest": "/index.html" }
-  ],
-  "builds": [
-    { "src": "package.json", "use": "@vercel/static-build", "config": { "distDir": "dist" } }
-  ],
-  "static": { "directory": "public" },
-  "cleanUrls": true,
-  "trailingSlash": false,
-  "headers": [
-    { "source": "/(.*)\\.(png|ico|jpg|jpeg|svg|webp|gif)$", "headers": [ { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" } ] }
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
   ]
 }

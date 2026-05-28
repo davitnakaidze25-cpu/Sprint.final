@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Zap, MapPin, Clock, Sun, Moon, LogOut, Navigation } from "lucide-react";
 import * as Switch from "@radix-ui/react-switch";
+import { useNavigate } from "react-router";
 import { motion } from "motion/react";
 import { Haptics, SPRINT_DESIGN_SYSTEM } from "../../utils/design-system";
 
@@ -12,10 +13,12 @@ export function StudentHome() {
     document.documentElement.classList.toggle("dark");
   };
 
+  const navigate = useNavigate();
+
   const handleSignOut = () => {
     Haptics.mediumTap();
     localStorage.removeItem("sprint_role");
-    window.location.href = "/onboarding";
+    window.location.replace("/onboarding");
   };
 
   const handleToggleAvailable = (val: boolean) => {
