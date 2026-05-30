@@ -12,18 +12,40 @@ import { BusinessProfile } from "./pages/BusinessProfile";
 import { BusinessTasks } from "./pages/BusinessTasks";
 import { Onboarding } from "./pages/Onboarding";
 
+// Individual components
+import { IndividualShell } from "./components/IndividualShell";
+import { IndividualDashboard } from "./pages/individual/Dashboard";
+import { IndividualTalentNetwork } from "./pages/individual/Talent";
+import { IndividualTasks } from "./pages/individual/Tasks";
+import { IndividualMessages } from "./pages/individual/Messages";
+import { IndividualProfile } from "./pages/individual/Profile";
+
 const role = localStorage.getItem("sprint_role");
 
 // Auth Guard Component for root path
 const RootRedirect = () => {
   if (!role) return <Navigate to="/onboarding" replace />;
-  return role === "student" ? <StudentShell /> : <BusinessShell />;
+  if (role === "student") return <StudentShell />;
+  if (role === "individual") return <Navigate to="/individual" replace />;
+  return <BusinessShell />;
 };
 
 export const router = createBrowserRouter([
   {
     path: "/onboarding",
     Component: Onboarding,
+  },
+  // We'll expose the individual route regardless of localstorage so you can test it directly
+  {
+    path: "/individual",
+    Component: IndividualShell,
+    children: [
+      { index: true, Component: IndividualDashboard },
+      { path: "talent", Component: IndividualTalentNetwork },
+      { path: "tasks", Component: IndividualTasks },
+      { path: "messages", Component: IndividualMessages },
+      { path: "profile", Component: IndividualProfile },
+    ]
   },
   ...(role === "student"
     ? [
@@ -59,4 +81,3 @@ export const router = createBrowserRouter([
         },
       ]),
 ]);
-

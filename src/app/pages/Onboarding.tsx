@@ -16,7 +16,7 @@ export function Onboarding() {
     setIsDark(!isDark);
   };
 
-  const selectRole = (role: "student" | "enterprise") => {
+  const selectRole = (role: "student" | "enterprise" | "individual") => {
     localStorage.setItem("sprint_role", role);
     window.location.href = "/";
   };
@@ -54,13 +54,13 @@ export function Onboarding() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
               onClick={() => selectRole("student")}
-              className="p-6 rounded-[20px] border-2 border-black/5 dark:border-white/5 bg-surface shadow-sm hover:border-brand dark:hover:border-brand transition-all text-left flex items-center gap-4 group"
+              className="p-4 rounded-[20px] border-2 border-black/5 dark:border-white/5 bg-surface shadow-sm hover:border-brand dark:hover:border-brand transition-all text-left flex items-center gap-4 group"
             >
               <div className="w-12 h-12 rounded-full bg-brand/10 text-brand flex items-center justify-center group-hover:scale-110 transition-transform">
                 <User size={24} />
               </div>
               <div className="flex flex-col">
-                <span className="text-h2 text-primary-color">Individual / Student</span>
+                <span className="text-h3 font-semibold text-primary-color">Student / Worker</span>
                 <span className="text-caption text-secondary-color">Find micro-gigs and earn GEL.</span>
               </div>
             </motion.button>
@@ -69,14 +69,30 @@ export function Onboarding() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
+              onClick={() => selectRole("individual")}
+              className="p-4 rounded-[20px] border-2 border-black/5 dark:border-white/5 bg-surface shadow-sm hover:border-[#5D3DBD] dark:hover:border-[#5D3DBD] transition-all text-left flex items-center gap-4 group"
+            >
+              <div className="w-12 h-12 rounded-full bg-[#5D3DBD]/10 text-[#5D3DBD] flex items-center justify-center group-hover:scale-110 transition-transform">
+                <User size={24} />
+              </div>
+              <div className="flex flex-col">
+                <span className="text-h3 font-semibold text-primary-color">Individual / Agent</span>
+                <span className="text-caption text-secondary-color">Get everyday tasks & errands done.</span>
+              </div>
+            </motion.button>
+
+            <motion.button 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3 }}
               onClick={() => selectRole("enterprise")}
-              className="p-6 rounded-[20px] border-2 border-black/5 dark:border-white/5 bg-surface shadow-sm hover:border-system-success dark:hover:border-system-success transition-all text-left flex items-center gap-4 group"
+              className="p-4 rounded-[20px] border-2 border-black/5 dark:border-white/5 bg-surface shadow-sm hover:border-system-success dark:hover:border-system-success transition-all text-left flex items-center gap-4 group"
             >
               <div className="w-12 h-12 rounded-full bg-system-success/10 text-system-success flex items-center justify-center group-hover:scale-110 transition-transform">
                 <Briefcase size={24} />
               </div>
               <div className="flex flex-col">
-                <span className="text-h2 text-primary-color">Business / Enterprise</span>
+                <span className="text-h3 font-semibold text-primary-color">Business / Enterprise</span>
                 <span className="text-caption text-secondary-color">Hire local talent on demand.</span>
               </div>
             </motion.button>

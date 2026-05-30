@@ -4,6 +4,7 @@ import * as Switch from "@radix-ui/react-switch";
 import { useNavigate } from "react-router";
 import { motion } from "motion/react";
 import { Haptics, SPRINT_DESIGN_SYSTEM } from "../../utils/design-system";
+import { WalletBalance } from "../components/WalletBalance";
 
 export function StudentHome() {
   const [isAvailable, setIsAvailable] = useState(true);
@@ -66,9 +67,11 @@ export function StudentHome() {
       </div>
 
       <div className="flex flex-col gap-6 px-6 mt-2">
+        <WalletBalance balance="₾95.00" escrow="₾30.00" role="student" />
+
         {/* Availability Card */}
         <motion.div
-          className="rounded-card p-4 flex flex-col gap-4 border-micro transition-all duration-300 bg-surface shadow-app"
+          className="rounded-card p-4 flex flex-col gap-4 border-micro transition-all duration-300 bg-surface shadow-app mt-2"
           layout
         >
           <div className="flex justify-between items-center">
@@ -104,30 +107,6 @@ export function StudentHome() {
             <div className="flex flex-col items-center gap-1">
               <span className="text-primary-color text-h2 font-bold flex items-center gap-1"><Zap size={16} className="text-system-warning fill-system-warning" /> 5d</span>
               <span className="text-caption text-secondary-color">Streak</span>
-            </div>
-          </div>
-        </div>
-
-        {/* Liquidity Asset Card */}
-        <div className="bg-surface rounded-card p-5 shadow-app border-micro flex flex-col gap-4 relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-32 h-32 bg-brand/5 rounded-full -translate-y-1/2 translate-x-1/4 blur-2xl" />
-          <div className="flex justify-between items-start z-10">
-            <div className="flex flex-col">
-              <span className="text-caption text-secondary-color uppercase tracking-wider mb-1 font-bold">Liquid Balance</span>
-              <span className="text-display tracking-tight">₾95<span className="text-h2 text-secondary-color">.00</span></span>
-            </div>
-            <button onClick={() => Haptics.heavyImpact()} className="bg-brand text-white px-5 py-2.5 rounded-full text-caption font-semibold shadow-md active:scale-95 transition-transform min-touch-target">
-              Withdraw
-            </button>
-          </div>
-
-          <div className="h-px w-full bg-black/5 dark:bg-white/5 z-10 my-1" />
-
-          <div className="flex items-center gap-2 z-10">
-            <div className="w-2 h-2 rounded-full bg-system-warning animate-pulse" />
-            <div className="flex flex-col">
-              <span className="text-caption font-semibold">₾30.00 in Escrow</span>
-              <span className="text-[10px] text-secondary-color">Pending active contract completion</span>
             </div>
           </div>
         </div>
