@@ -133,7 +133,7 @@ export function BusinessMessages() {
   );
 }
 
-// ─── Business Chat Detail (with live messaging + @SprintBot) ─────────────────
+// Business Chat Panel
 
 const BUSINESS_INITIAL_MESSAGES: ChatMessage[] = [
   { id: "b1", text: "Hey Davit, are you able to come to the office today?", sender: "me", time: "09:15 AM" },

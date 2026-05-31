@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "motion/react";
 import { Send, Mic, Plus, Bot, Sparkles } from "lucide-react";
 import { Haptics } from "./design-system";
 
-// ─── Types ───────────────────────────────────────────────────────────────────
+// Types
 
 export interface ChatMessage {
   id: string;
@@ -13,7 +13,7 @@ export interface ChatMessage {
   isTyping?: boolean;
 }
 
-// ─── SprintBot Response Engine ───────────────────────────────────────────────
+// SprintBot Response Engine
 
 const BOT_RESPONSES: Record<string, string[]> = {
   price: [
@@ -60,7 +60,7 @@ function getNow(): string {
   return new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
 }
 
-// ─── Chat Input Component ────────────────────────────────────────────────────
+// Chat Input Component
 
 interface ChatInputProps {
   onSend: (text: string) => void;
@@ -134,7 +134,7 @@ export function ChatInput({ onSend, placeholder = "Type a message...", showBotIn
   );
 }
 
-// ─── Chat Bubble Component ───────────────────────────────────────────────────
+// Chat Bubble Component
 
 interface ChatBubbleProps {
   message: ChatMessage;
@@ -203,7 +203,7 @@ export function ChatBubble({ message }: ChatBubbleProps) {
   );
 }
 
-// ─── Chat Messages Container ─────────────────────────────────────────────────
+// Chat Messages Container
 
 interface ChatMessagesProps {
   messages: ChatMessage[];
@@ -238,7 +238,7 @@ export function ChatMessages({ messages, systemBanner }: ChatMessagesProps) {
   );
 }
 
-// ─── useChatEngine Hook ──────────────────────────────────────────────────────
+// Chat Engine Hook
 
 export function useChatEngine(initialMessages: ChatMessage[], enableBot = true) {
   const [messages, setMessages] = useState<ChatMessage[]>(initialMessages);

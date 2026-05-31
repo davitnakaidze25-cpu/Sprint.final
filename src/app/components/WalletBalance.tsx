@@ -2,7 +2,7 @@ import { useState, useRef } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { QrCode, Wallet, ArrowUpRight, TrendingUp, X, ChevronDown, Camera, Image, CheckCircle2, Circle, ScanLine, Upload } from "lucide-react";
 
-// ─── QR Payment Sheet (Agent / Business) ─────────────────────────────────────
+// QR Payment Sheet for Agent/Business
 function PaymentSheet({ balance, onClose }: { balance: string; onClose: () => void }) {
   const [amount, setAmount] = useState("");
   const [note, setNote] = useState("");
@@ -139,7 +139,7 @@ function PaymentSheet({ balance, onClose }: { balance: string; onClose: () => vo
   );
 }
 
-// ─── QR Scanner Sheet (Student) ───────────────────────────────────────────────
+// QR Scanner Sheet for Student
 function ScannerSheet({ onClose }: { onClose: () => void }) {
   const [scanned, setScanned] = useState(false);
   const [mode, setMode] = useState<"scan" | "upload">("scan");
@@ -284,7 +284,7 @@ function ScannerSheet({ onClose }: { onClose: () => void }) {
   );
 }
 
-// ─── Main WalletBalance Component ─────────────────────────────────────────────
+// Main WalletBalance Component
 export function WalletBalance({ balance, escrow, role = "agent" }: {
   balance: string;
   escrow?: string;

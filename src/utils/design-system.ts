@@ -21,10 +21,7 @@ export const SPRINT_DESIGN_SYSTEM = {
   }
 };
 
-/**
- * Triggers hardware-level haptic feedback sequences.
- * Must be called in response to user interaction.
- */
+// Simple haptic vibrations for touch feedback
 export const Haptics = {
   heavyImpact: () => {
     if (typeof navigator !== 'undefined' && navigator.vibrate) {

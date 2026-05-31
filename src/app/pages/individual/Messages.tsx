@@ -133,7 +133,7 @@ export function IndividualMessages() {
   );
 }
 
-// ─── Individual Chat Detail (with live messaging + @SprintBot) ─────────────────
+// Individual Chat Panel
 
 const INDIVIDUAL_INITIAL_MESSAGES: ChatMessage[] = [
   { id: "b1", text: "Hey Sandro, are you available to help with some heavy lifting?", sender: "me", time: "09:15 AM" },

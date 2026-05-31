@@ -100,7 +100,7 @@ export function StudentMessages() {
   );
 }
 
-// ─── Student Chat Detail (with live messaging + @SprintBot) ──────────────────
+// Student Chat Panel
 
 const STUDENT_INITIAL_MESSAGES: ChatMessage[] = [
   { id: "s1", text: "Hey! I'm on my way to the location.", sender: "me", time: "10:30 AM" },
