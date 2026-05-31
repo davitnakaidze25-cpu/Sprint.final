@@ -323,7 +323,7 @@ export function WalletBalance({ balance, escrow, role = "agent" }: {
           {escrow && (
             <div className="flex-1 bg-black/20 backdrop-blur-sm border border-white/10 rounded-xl py-3 px-4 flex flex-col justify-center">
               <span className="text-[10px] text-white/70 font-semibold uppercase tracking-wide flex items-center gap-1">
-                <TrendingUp size={10} className="text-[#00E676]" /> In Escrow
+                <TrendingUp size={10} className="text-[#00E676]" /> Pending
               </span>
               <span className="text-[14px] font-bold">{escrow}</span>
             </div>

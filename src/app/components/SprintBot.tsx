@@ -88,7 +88,7 @@ export function SprintBot() {
                 </div>
                 <div>
                   <h3 className="font-semibold text-[#0F0F11] text-lg flex items-center gap-1">@SprintBot</h3>
-                  <p className="text-xs text-[#5D3DBD] font-medium flex items-center gap-1"><Sparkles size={10} /> Powered by Groq Cloud — Lightning Fast</p>
+                  <p className="text-xs text-[#5D3DBD] font-medium flex items-center gap-1"><Sparkles size={10} /> Powered by Groq</p>
                 </div>
               </div>
               <button onClick={() => setIsOpen(false)} className="p-2 rounded-full hover:bg-gray-100 transition-colors text-gray-500">

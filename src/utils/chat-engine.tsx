@@ -65,9 +65,10 @@ function getNow(): string {
 interface ChatInputProps {
   onSend: (text: string) => void;
   placeholder?: string;
+  showBotInfo?: boolean;
 }
 
-export function ChatInput({ onSend, placeholder = "Type a message..." }: ChatInputProps) {
+export function ChatInput({ onSend, placeholder = "Type a message...", showBotInfo = true }: ChatInputProps) {
   const [text, setText] = useState("");
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -121,12 +122,14 @@ export function ChatInput({ onSend, placeholder = "Type a message..." }: ChatInp
           <Send size={18} className="ml-0.5" />
         </button>
       </div>
-      <div className="flex items-center gap-1.5 mt-2 px-1">
-        <Bot size={12} className="text-brand" />
-        <span className="text-[10px] text-secondary-color">
-          Tag <span className="text-brand font-bold">@SprintBot</span> for AI assistance
-        </span>
-      </div>
+      {showBotInfo && (
+        <div className="flex items-center gap-1.5 mt-2 px-1">
+          <Bot size={12} className="text-brand" />
+          <span className="text-[10px] text-secondary-color">
+            Tag <span className="text-brand font-bold">@SprintBot</span> for AI assistance
+          </span>
+        </div>
+      )}
     </div>
   );
 }
@@ -237,7 +240,7 @@ export function ChatMessages({ messages, systemBanner }: ChatMessagesProps) {
 
 // ─── useChatEngine Hook ──────────────────────────────────────────────────────
 
-export function useChatEngine(initialMessages: ChatMessage[]) {
+export function useChatEngine(initialMessages: ChatMessage[], enableBot = true) {
   const [messages, setMessages] = useState<ChatMessage[]>(initialMessages);
 
   const sendMessage = useCallback((text: string) => {
@@ -251,7 +254,7 @@ export function useChatEngine(initialMessages: ChatMessage[]) {
     setMessages((prev) => [...prev, userMsg]);
 
     // Check if @SprintBot is tagged
-    if (text.toLowerCase().includes("@sprintbot")) {
+    if (enableBot && text.toLowerCase().includes("@sprintbot")) {
       // Show typing indicator
       const typingId = `bot-typing-${Date.now()}`;
       const typingMsg: ChatMessage = {
@@ -279,7 +282,7 @@ export function useChatEngine(initialMessages: ChatMessage[]) {
         Haptics.mediumTap();
       }, 1200 + Math.random() * 800);
     }
-  }, []);
+  }, [enableBot]);
 
   return { messages, sendMessage };
 }
