@@ -51,7 +51,7 @@ export function IndividualMessages() {
       <div className="pt-12 px-6 flex flex-col gap-4">
         <h1 className="text-display tracking-tight">Messages</h1>
         
-        {/* Unified Search Engine Input */}
+        {/* Search bar */}
         <div className="relative mt-2">
           <Search size={18} className="absolute left-3 top-1/2 -translate-y-1/2 text-secondary-color" />
           <input 
@@ -65,7 +65,7 @@ export function IndividualMessages() {
       <div className="flex-1 overflow-y-auto px-6 py-6 flex flex-col gap-8 pb-24">
         {PIPELINE_GROUPS.map((group, idx) => (
           <div key={idx} className="flex flex-col gap-3">
-            {/* Aggregated Listing Blocks Header */}
+            {/* Group header */}
             <div className="flex justify-between items-end border-b border-micro pb-2">
                <h2 className="text-h2 font-bold">{group.groupTitle}</h2>
                <span className={`text-[10px] font-bold px-2 py-1 rounded-md uppercase tracking-wider ${group.status === 'ACTIVE' ? 'bg-system-success/10 text-system-success' : 'bg-brand/10 text-brand'}`}>
@@ -95,7 +95,7 @@ export function IndividualMessages() {
                     </div>
                     
                     <div className="flex items-center gap-2 mt-0.5">
-                      {/* Contextual Progress Badge - ON SITE */}
+                      {/* ON SITE badge */}
                       {candidate.triggerOnSite && (
                         <span className="text-[9px] font-bold bg-system-warning text-white px-1.5 py-0.5 rounded uppercase tracking-wider flex items-center gap-0.5 shrink-0">
                           <MapPin size={10} /> ON SITE
